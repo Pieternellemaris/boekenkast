@@ -7,42 +7,35 @@ let g;
 let b;
 let geklikt = true;
 let y1 = 20 + 20 * 5; //plank ondersteuning boeken hoogte/breedte afhankelijk van grootste aantal kaartjes #1//
-let
+let y2 = y1 + 24 * 5;
+let y3 = y2 + 6.5 * 15;
+let d1 = 20;
+let d2 = 5;
 
 function preload() {
-  mijnData = loadJSON('json/voorkant-vol.json');
-  mijnData2 = loadJSON('json/meerdere-soorten.json');
   mijnData3 = loadJSON('json/count.json');
 }
 
 function setup() {
-  createCanvas(700, 700);
+  textAlign(CENTER);
+  createCanvas(680, 605);
   r = random(0, 255);
   b = random(0, 255);
   g = random(0, 255);
-  console.log(mijnData);
-  console.log(mijnData[0].kaartjes[0].datum);
-  console.log(mijnData[0].kaartjes[0].datum[0]);
-  console.log(mijnData3[12].count);
-  console.log(mijnData[0].kaartjes[0].datum.length);
-  console.log(mijnData[0].kaartjes.length);
-  console.log(mijnData3);
-  console.log(mijnData2[0].soorten[0].frontfull.length);
-  console.log(mijnData2[0].soorten[0].frontfull[0].datum.length);
-  console.log(mijnData2[0].soorten[1].voorenachter[1].datum[0].voor.length);
-  console.log(mijnData2[0].soorten[1].voorenachter[0].datum[0].voor.length);
-  console.log(mijnData3[12].verhouding);
-  console.log(geklikt);
   y = 20;
 }
 
 function draw() {
-  background(69, 50, 46);
-randomSeed(1);
-  // plank 1//
+  textAlign(CENTER);
+  background(101, 75, 51);
+  randomSeed(1);
+
+  // plank 1&2//
   push();
   fill(138, 102, 66);
   rect(20, y1, width, 20);
+  rect(20, y2, width, 20);
+  rect(20, y3, width, 20);
   pop();
 
 
@@ -50,70 +43,92 @@ randomSeed(1);
   push();
   fill(138, 102, 66);
   rect(0, 0, 20, height);
-  rect(680, 0, 20, height);
+  rect(660, 0, 20, height);
   rect(0, 0, width, 20);
-  rect(0, 680, width, 20);
+  rect(0, 585, width, 20);
   pop();
 
 
-
-  //boek label//
-  push();
-  fill(255, 0, 0, 100);
-  rect(20, y1 - 25, 12 * 20, 15);
-  pop();
-
-
-
-  y = y+ 1
-  ellipse(20, y, 10, 10);
-  console.log(y);
   let x = 20;
+  //boeken //
+  for (let i = 0; i < 231; i++) {
+    r = random(20, 205);
+    g = random(60, 120);
+    b = random(100, 130);
+    fill(r, i, i, 150);
 
-  //boeken voorkant vol en voor en achter//
-  for (let i = 0; i < 30; i++) {
+    // fill( r , g , b ,150); //kleur boeken//
+    // fill(r, i * 3, 55 + i * 20, 150); 
+    if (mijnData3[i].verhouding == 1 && i > 63) { // 3de plank//
 
-    r = random(0, 255) * i;
-    b = random(0, 255) * i;
-    g = random(0, 255) * i;
-
-    fill(random(255), i * 5, 55 - i * 2, 150); //kleur boeken//
-
-    if (mijnData3[i].verhouding == 1) {
-
-      rect(20 + i * 20, y1, 20, -mijnData3[i].count * 5);
+      fill(i * 3, g * 3, b * 3, 150);
+      rect(-300 + i * d2, y3, d2, -mijnData3[i].count * 15);
+      rect(-300 + i * d2, y3 - 0.8 * mijnData3[i].count, d2, -0.2 * mijnData3[i].count * 15); //label//
       if (geklikt) {
-         push();
-      fill(242, 199, 101);
-      text(mijnData3[i].count, 22 + i * 20, y1 - 13);
-      pop();
+        push();
+        fill(242, 199, 101);
+        text(mijnData3[i].count, -296 + i * d2, y3 - 0.8 * mijnData3[i].count);
+        pop();
       }
-     
 
-    } else {
+
+    } else if (mijnData3[i].verhouding == 1 && i > 31) { //2de plank //
+
+      rect(-620 + i * d1, y2, d1, -mijnData3[i].count * 5);
+      rect(-620 + i * d1, y2 - 0.8 * mijnData3[i].count, d1, -0.2 * mijnData3[i].count * 5); //label//
+      if (geklikt) {
+        push();
+        fill(242, 199, 101);
+        text(mijnData3[i].count, -610 + i * d1, y2 - 1 * mijnData3[i].count);
+        pop();
+      }
+
+    } else if (mijnData3[i].verhouding == 1) { //eerste plank //
+
+      rect(20 + i * d1, y1, d1, -mijnData3[i].count * 5);
+      rect(20 + i * d1, y1 - 0.8 * mijnData3[i].count, d1, -0.2 * mijnData3[i].count * 5); //label//
+      if (geklikt) {
+        push();
+        fill(242, 199, 101);
+        text(mijnData3[i].count, 30 + i * d1, y1 - 1 * mijnData3[i].count);
+        pop();
+      }
+    }
+    else {
       let d = mijnData3[i].count;
-      let verhouding = mijnData3[i].verhouding * 20;
-     
-      x = x + verhouding; //probeer ze netjes naast elkaar te krijgen??//
-      fill(120,100);
-      rect(x, 365, verhouding , -d * 5)
-       console.log(verhouding);
-       console.log(x);
-     
+      let verhouding = mijnData3[i].verhouding * d1;
+      r = random(1, 145);
+      fill(r, (2 * i - 250), (2 * i - 250), 150);
+      rect(x, 585, verhouding, -d * 5);
+      rect(x, 585 - 0.8 * d, verhouding, -0.2 * d * 5);//label//
+      if (geklikt) {
+        push();
+        fill(242, 199, 101);
+        text(mijnData3[i].count, x + 7, 580 - 0.8 * d);
+        pop();
+      }
+      x = x + verhouding;
     }
   }
 
-  //aantal kaartjes verschijnen//
+  //aantal datums verschijnen//
   if (
-      mouseX>20 && mouseX<260 &&
-      mouseY>20 && mouseY<150
-      ) {
-geklikt=true
-    } else {
-      geklikt=false
-    }
-
-
+    mouseX > 20 && mouseX < width - 20 &&
+    mouseY > 20 && mouseY < 120
+    ||
+    mouseX > 20 && mouseX < width - 20 &&
+    mouseY > y1 + 20 && mouseY < y2
+    ||
+    mouseX > 20 && mouseX < width - 30 &&
+    mouseY > y3 + 20 && mouseY < height - 20
+    ||
+    mouseX > 20 && mouseX < width - 35 &&
+    mouseY > y2 + 20 && mouseY < y3
+  ) {
+    geklikt = true;
+  } else {
+    geklikt = false;
+  }
 
 }
 
