@@ -79,7 +79,8 @@ function draw() {
       rect(-300 + i * d2, y3 - 0.8 * mijnData3[i].count, d2, -0.2 * mijnData3[i].count * 15); //label//
       if (geklikt3) {
         push();
-        fill(242, 199, 101);
+        textSize(15)
+        fill(0);
         text(mijnData3[i].count, -296 + i * d2, y3 - 0.8 * mijnData3[i].count);
         pop();
       }
@@ -123,21 +124,21 @@ function draw() {
       x = x + verhouding;
     }
     if (
-      mouseX >  ( i * d1 +20) && mouseX < i * d1 +40 &&
+      mouseX >  ( i * d1 +40) && mouseX < i * d1 +60 &&
       mouseY > 120-mijnData3[i].count * 5 && mouseY < 120
     ) {
       geklikt1 = true;
     } else if (
-      mouseX > 20 && mouseX < width - 20 &&
+      mouseX > -600 + i * d1 && mouseX < -580 + i * d1 &&
       mouseY > y1 + 20 && mouseY < y2) {
       geklikt2= true;
     } else if (  
-      mouseX > 20 && mouseX < width - 35 &&
+      mouseX > -295 + i * d2 && mouseX < -290+ i * d2 &&
       mouseY > y2 + 20 && mouseY < y3
       ) {
       geklikt3= true;
     } else if (  
-      mouseX > 20 && mouseX < width - 30 &&
+      mouseX > x && mouseX < (x + mijnData3[i].verhouding * d1) &&
       mouseY > y3 + 20 && mouseY < height - 20  
     ) {
       geklikt4= true;
