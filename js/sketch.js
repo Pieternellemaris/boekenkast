@@ -5,7 +5,10 @@ let dataY;
 let r;
 let g;
 let b;
-let geklikt = true;
+let geklikt1 = true;
+let geklikt2= true;
+let geklikt3= true;
+let geklikt4= true;
 let y1 = 20 + 20 * 5; //plank ondersteuning boeken hoogte/breedte afhankelijk van grootste aantal kaartjes #1//
 let y2 = y1 + 24 * 5;
 let y3 = y2 + 6.5 * 15;
@@ -18,11 +21,21 @@ function preload() {
 
 function setup() {
   textAlign(CENTER);
-  createCanvas(680, 605);
+  let canvas = createCanvas(680, 605);
+  canvas.parent('sketch-container');
   r = random(0, 255);
   b = random(0, 255);
   g = random(0, 255);
   y = 20;
+//   c1 = color(69,50,46);
+//   c2 = color(121, 85, 61);
+
+//   for(let x=0; x<width; x++){
+//     n = map(x,0,width,0,1);
+//     let newc = lerpColor(c1,c2,n);
+//     stroke(newc);
+//     line(0,x,height, x);
+//   }
 }
 
 function draw() {
@@ -64,7 +77,7 @@ function draw() {
       fill(i * 3, g * 3, b * 3, 150);
       rect(-300 + i * d2, y3, d2, -mijnData3[i].count * 15);
       rect(-300 + i * d2, y3 - 0.8 * mijnData3[i].count, d2, -0.2 * mijnData3[i].count * 15); //label//
-      if (geklikt) {
+      if (geklikt3) {
         push();
         fill(242, 199, 101);
         text(mijnData3[i].count, -296 + i * d2, y3 - 0.8 * mijnData3[i].count);
@@ -76,7 +89,7 @@ function draw() {
 
       rect(-620 + i * d1, y2, d1, -mijnData3[i].count * 5);
       rect(-620 + i * d1, y2 - 0.8 * mijnData3[i].count, d1, -0.2 * mijnData3[i].count * 5); //label//
-      if (geklikt) {
+      if (geklikt2) {
         push();
         fill(242, 199, 101);
         text(mijnData3[i].count, -610 + i * d1, y2 - 1 * mijnData3[i].count);
@@ -87,7 +100,7 @@ function draw() {
 
       rect(20 + i * d1, y1, d1, -mijnData3[i].count * 5);
       rect(20 + i * d1, y1 - 0.8 * mijnData3[i].count, d1, -0.2 * mijnData3[i].count * 5); //label//
-      if (geklikt) {
+      if (geklikt1) {
         push();
         fill(242, 199, 101);
         text(mijnData3[i].count, 30 + i * d1, y1 - 1 * mijnData3[i].count);
@@ -98,10 +111,10 @@ function draw() {
       let d = mijnData3[i].count;
       let verhouding = mijnData3[i].verhouding * d1;
       r = random(1, 145);
-      fill(r, (2 * i - 250), (2 * i - 250), 150);
+      fill(r, (2 * i - 250), (2.2 * i - 250), 150);
       rect(x, 585, verhouding, -d * 5);
       rect(x, 585 - 0.8 * d, verhouding, -0.2 * d * 5);//label//
-      if (geklikt) {
+      if (geklikt4) {
         push();
         fill(242, 199, 101);
         text(mijnData3[i].count, x + 7, 580 - 0.8 * d);
@@ -109,26 +122,61 @@ function draw() {
       }
       x = x + verhouding;
     }
+    if (
+      mouseX >  ( i * d1 +20) && mouseX < i * d1 +40 &&
+      mouseY > 120-mijnData3[i].count * 5 && mouseY < 120
+    ) {
+      geklikt1 = true;
+    } else if (
+      mouseX > 20 && mouseX < width - 20 &&
+      mouseY > y1 + 20 && mouseY < y2) {
+      geklikt2= true;
+    } else if (  
+      mouseX > 20 && mouseX < width - 35 &&
+      mouseY > y2 + 20 && mouseY < y3
+      ) {
+      geklikt3= true;
+    } else if (  
+      mouseX > 20 && mouseX < width - 30 &&
+      mouseY > y3 + 20 && mouseY < height - 20  
+    ) {
+      geklikt4= true;
+    }
+    else {
+      geklikt1 = false;
+      geklikt2= false;
+      geklikt3= false;
+      geklikt4= false;
+    }
   }
 
   //aantal datums verschijnen//
-  if (
-    mouseX > 20 && mouseX < width - 20 &&
-    mouseY > 20 && mouseY < 120
-    ||
-    mouseX > 20 && mouseX < width - 20 &&
-    mouseY > y1 + 20 && mouseY < y2
-    ||
-    mouseX > 20 && mouseX < width - 30 &&
-    mouseY > y3 + 20 && mouseY < height - 20
-    ||
-    mouseX > 20 && mouseX < width - 35 &&
-    mouseY > y2 + 20 && mouseY < y3
-  ) {
-    geklikt = true;
-  } else {
-    geklikt = false;
-  }
+  // if (
+  //   mouseX > 20 && mouseX < width - 20 &&
+  //   mouseY > 20 && mouseY < 120
+  // ) {
+  //   geklikt1 = true;
+  // } else if (
+  //   mouseX > 20 && mouseX < width - 20 &&
+  //   mouseY > y1 + 20 && mouseY < y2) {
+  //   geklikt2= true;
+  // } else if (  
+  //   mouseX > 20 && mouseX < width - 35 &&
+  //   mouseY > y2 + 20 && mouseY < y3
+  //   ) {
+  //   geklikt3= true;
+  // } else if (  
+  //   mouseX > 20 && mouseX < width - 30 &&
+  //   mouseY > y3 + 20 && mouseY < height - 20  
+  // ) {
+  //   geklikt4= true;
+  // }
+  // else {
+  //   geklikt1 = false;
+  //   geklikt2= false;
+  //   geklikt3= false;
+  //   geklikt4= false;
+  // }
 
 }
 
