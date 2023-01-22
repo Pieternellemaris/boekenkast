@@ -69,9 +69,34 @@ function draw() {
     g = random(60, 120);
     b = random(100, 130);
     fill(r, i, i, 150);
-
-    // fill( r , g , b ,150); //kleur boeken//
-    // fill(r, i * 3, 55 + i * 20, 150); 
+      //aantal datums verschijnen//
+    if (
+      mouseX >  ( i * d1 +20) && mouseX < i * d1 +40 &&
+      mouseY > 120-mijnData3[i].count * 5 && mouseY < 120
+    ) {
+      geklikt1 = true;
+    } else if (
+      mouseX > -620 + i * d1 && mouseX < -600 + i * d1 &&
+      mouseY > y2-mijnData3[i].count * 5 && mouseY < y2) {
+      geklikt2= true;
+    } else if (  
+      mouseX > -300 + i * d2 && mouseX < -295+ i * d2 &&
+      mouseY > y3-mijnData3[i].count * 15 && mouseY < y3
+      ) {
+      geklikt3= true;
+    } else if (  
+      mouseX > x && mouseX < (x + mijnData3[i].verhouding * d1) &&
+      mouseY > height-20-mijnData3[i].count * 5 && mouseY < height - 20  
+    ) {
+      geklikt4= true;
+    }
+    else {
+      geklikt1 = false;
+      geklikt2= false;
+      geklikt3= false;
+      geklikt4= false;
+    }
+//boeken op plank//
     if (mijnData3[i].verhouding == 1 && i > 63) { // 3de plank//
 
       fill(i * 3, g * 3, b * 3, 150);
@@ -79,7 +104,8 @@ function draw() {
       rect(-300 + i * d2, y3 - 0.8 * mijnData3[i].count, d2, -0.2 * mijnData3[i].count * 15); //label//
       if (geklikt3) {
         push();
-        fill(242, 199, 101);
+        textSize(15)
+        fill(0);
         text(mijnData3[i].count, -296 + i * d2, y3 - 0.8 * mijnData3[i].count);
         pop();
       }
@@ -122,61 +148,11 @@ function draw() {
       }
       x = x + verhouding;
     }
-    if (
-      mouseX >  ( i * d1 +20) && mouseX < i * d1 +40 &&
-      mouseY > 120-mijnData3[i].count * 5 && mouseY < 120
-    ) {
-      geklikt1 = true;
-    } else if (
-      mouseX > 20 && mouseX < width - 20 &&
-      mouseY > y1 + 20 && mouseY < y2) {
-      geklikt2= true;
-    } else if (  
-      mouseX > 20 && mouseX < width - 35 &&
-      mouseY > y2 + 20 && mouseY < y3
-      ) {
-      geklikt3= true;
-    } else if (  
-      mouseX > 20 && mouseX < width - 30 &&
-      mouseY > y3 + 20 && mouseY < height - 20  
-    ) {
-      geklikt4= true;
-    }
-    else {
-      geklikt1 = false;
-      geklikt2= false;
-      geklikt3= false;
-      geklikt4= false;
-    }
+
   }
 
-  //aantal datums verschijnen//
-  // if (
-  //   mouseX > 20 && mouseX < width - 20 &&
-  //   mouseY > 20 && mouseY < 120
-  // ) {
-  //   geklikt1 = true;
-  // } else if (
-  //   mouseX > 20 && mouseX < width - 20 &&
-  //   mouseY > y1 + 20 && mouseY < y2) {
-  //   geklikt2= true;
-  // } else if (  
-  //   mouseX > 20 && mouseX < width - 35 &&
-  //   mouseY > y2 + 20 && mouseY < y3
-  //   ) {
-  //   geklikt3= true;
-  // } else if (  
-  //   mouseX > 20 && mouseX < width - 30 &&
-  //   mouseY > y3 + 20 && mouseY < height - 20  
-  // ) {
-  //   geklikt4= true;
-  // }
-  // else {
-  //   geklikt1 = false;
-  //   geklikt2= false;
-  //   geklikt3= false;
-  //   geklikt4= false;
-  // }
+
+
 
 }
 
