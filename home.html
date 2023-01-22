@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>De anonieme boekenkast</title>
+    <script src="js/p5.js"></script>
+    <script src="js/sketch.js"></script>
+    
+</head> 
+<body>
+  <div id="page-container">
+  <header>
+    <div>
+      <ul class="nav" >
+           <li><a href="home.html" > Home </a></li> 
+          <li><a href= "about.html" > About</a></li>
+          <li> <a href="book.html"> Book</a></li>
+          <li>Data</li>
+      </ul>
+  </div>
+  </header>
+
+<div class="afbeelding-tekst">
+  <h1>De anonieme boekenkast</h1>
+     <img id= "kaartjes" src="images/kaartjes1.jpg">
+</div>
+<main> 
+  <!-- div tekst naast boekenkast -->
+<div id="tekst-boekenkast">
+  <h2> Het vergeten boek</h2>
+<p> In het begin van schooljaar 22-23 wordt er een kleine bibliotheek ingericht in het Maastricht institute of Art aan het Herdenkingsplein 12. Hiervoor zijn er van verschillende locaties van Hogeschool Zuyd boeken verzameld van de oude bibliotheken die terug dateren tot aan 1971. Van deze honderde boeken wordt een selectie gemaakt. De boeken die niet gekozen zijn verblijven in houten kratten naast de keramiek werkplaats. Voor twee weken mochten studenten deze gratis uitzoeken en meenemen. De rest wordt weggedaan. Deze boeken, niet waardig genoeg voor de nieuwe bibliotheek, bekeek Autonoom student Pieternelle Maris ook. Niet de inhoud, maar de stempel kaarten in een vakje aan de binnenkant van de kaft vielen haar op. 7/10-71 met de hand geschreven, 18 MEI 1972 met zwarte stempel inkt tot aan 1-NOV-2014. Al deze boeken hebben een eigen verhaal: sommige vaak geleend, weinig, verdeeld over 10-20 jaar, van alle tijden of eenmalig in 1974. Van meer dan 200 boeken heeft Pieternelle de stempel kaarten verzameld en aan de vergetelheid ontrukt. In de afgelopen 50 jaar zijn deze boeken samen meer dan 1500 keer geleend.</p> 
+<p> Vanwege de PPG privacy wet worden deze boeken anoniem herdacht. Er is niet meer te achterhalen welk boek veel of weinig geleend is of door wie. Deze datavisualisatie geeft een beeld van de geschiedenis van vergeten boeken. Deze boekenkast is hun laatste rustplaats.</p>
+
+</div>
+<!-- eind tekst naast boekenkast -->
+<!-- div legenda -->
+  <div class="my-legend"> 
+
+  <h3 class="legend-title">Legenda</h3>
+
+
+  <div class="legend-row">
+    <ul class='legend-books'>
+      <span class="book1">5</span> 
+      <span class="book2" >9</span> 
+      <span class="book3">7</span> 
+      <span class="book4" ></span> 
+      <span class="book5"></span> 
+      <span class="book6"></span> 
+    </ul>
+  </div>
+    <p class="hoogte">Hoogte van boek = Aantal keren geleend</p>
+    <p class="dikte"> Dikte = Verhouding voor en achter</p>
+
+
+  <div class='legend-scale'>
+    <ul class='legend-labels'>
+      <li><span style='background: linear-gradient(to bottom, #a1261a 0%, #3d1912 130%);'></span>Enkelzijdig kaartje</li>
+      <li><span style='background: linear-gradient(to bottom, #dcbdd8 0%, #b8dcda 100%);'></span>Tussen 1 en 5 keer geleend</li>
+      <li><span style='background:linear-gradient(to bottom, #2d4957 -2%, #438fb1 100%);'></span>Dubbelzijdig kaartje</li> 
+    </ul>
+  </div>
+
+</div>
+<!-- eind div legenda -->
+
+
+<!-- div boekenkast -->
+<div id="boekenkast">
+  <div id="sketch-container"></div>
+</div>
+<!-- eind div boekenkast -->
+
+</main>
+
+    <footer>
+      <a href="mailto:2100314maris@zuyd.nl" class="cta">
+        <span class="emoji mail">✉️</span> <span class="line">2100314maris@zuyd.nl</span>
+    </a>
+    <a href="https://github.com/Pieternellemaris" target="_blank" class="cta">
+    <span class="buitenaards monster">👾</span> <span class="line">github.com/Pieternellemaris</span>
+  </a>
+    </footer>
+
+  </div>
+  </body>
+</html>

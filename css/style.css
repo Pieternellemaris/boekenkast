@@ -1,2 +1,246 @@
-body{margin:0;
-    padding:0;}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: #f9f3ed;
+    /* background-color: violet; */
+    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Rubik', sans-serif;
+}
+header {
+    text-transform: uppercase;
+    font-size: 20pt;
+    font-weight: bold;
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #8A6846;
+    color: black;
+    height: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 40px 0px; 
+    /* font-family: 'JetBrains Mono', monospace; */
+}
+
+main {
+    height: 100vh;
+    background-color: #f9f3ed;
+    margin: 40px auto;
+    width: 82vw;
+    position: relative;
+    padding-bottom: 8.5rem;   
+}
+#page-container {
+    position: relative;
+    min-height: 100vh;
+    text-decoration: none;
+}
+  
+footer {
+    /* font-family: 'JetBrains Mono', monospace; */
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    padding: 20px 10px;
+    height: 1.5rem;
+    text-align: right;
+    background-color: #9a9bbb;
+    color: black;
+}
+
+
+.nav li {
+    float: left;
+    padding: 0px 30px;
+
+}
+.nav {
+    float: right;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+/* afbeelding tekst vak*/
+
+div.afbeelding-tekst {
+    position: relative;
+    margin: 0 auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    font-size: 25pt;
+    position: absolute;
+    left: 50% ;
+    top: 50%;
+    width: 300px;
+    background-color: #B8DCDA;
+    color: #584c6f;
+    padding: 60px;
+    margin: -90px 0 0 -210px ;
+}
+
+#kaartjes {
+    min-width: 100vw;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* boekenkast vak*/
+
+#boekenkast {
+    position: relative;
+    float: right;
+}
+
+#tekst-boekenkast {
+    float: left;
+    margin-top: 0px;
+    width: 450px;
+    height: fit-content;
+    /* background-color: #be7080; */
+    padding:  3rem ;
+}
+
+h3 {
+    text-align: right;
+    margin: 2rem;
+}
+h2 {
+    font-size: 30pt;
+    margin: 1rem 0 2rem 0;
+}
+
+p {
+    font-size: 13pt;
+    line-height: 1.4em;
+}
+
+    /* legenda */
+    .my-legend {
+        position: relative;
+        float: right;
+        /* background-color: aqua; */
+        width: 580px;
+        margin: 0px 50px 10px 0px;
+    }
+
+    .my-legend .legend-title {
+        font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    margin: 15px 0 35px 0;
+    font-weight: bold;
+    font-size: 120%;
+    }
+
+  .my-legend .legend-scale ul {
+    list-style: none;
+    }
+
+  .my-legend .legend-scale ul li {
+    /* background-color: darkorange; */
+    float: left;
+    width: 250px;
+    list-style: none;
+    line-height: 30px;
+    margin-bottom: 5px;
+    }
+
+  .my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 30px;
+    width: 16px;
+    margin-right: 10px;
+    border: 1px solid black;    
+    }
+
+    .my-legend div.legend-row {
+        float: right;
+        width: 300px;
+        height: 105px;
+        /* background-color: deeppink; */
+    }
+
+    .my-legend ul.legend-books {
+        position: relative;
+    }
+
+    .my-legend ul.legend-books span {
+        text-align: center;
+        color: rgb(242, 199, 101);;
+        float: left;
+        display: block;
+        border: 1px solid black;
+        }
+
+    .my-legend  p.hoogte {
+        /* background-color: crimson; */
+        right: 0px;
+        margin-top: 5px;
+        position: absolute;
+        width: 230px;
+        height: 40px;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .my-legend  p.dikte {
+        /* background-color: crimson; */
+        right: 0px;
+        bottom: 7px;
+        position: absolute;
+        width: 230px;
+        height: 40px;
+        font-family: 'Rubik', sans-serif;
+    }
+    .book1 {
+        width: 16px;
+        margin-top: 20px;
+        height: 20px;
+        background-color: #6e1a12;
+    }
+    .book2 {
+        width: 16px;
+        margin-top: 0px;
+        height: 40px;
+        background-color: #8c2218;
+        left: 20px;
+    }
+    .book3 {
+        width: 16px;
+        height: 30px;
+        margin-top: 10px;
+        background-color: #6e1a12;
+    }
+    .book4 {
+        position: absolute;
+        width: 12px;
+        margin-top: 70px;
+        height: 30px;
+        background-color: #438fb1;
+    }
+    .book5 {
+        position: absolute;
+        left:13px;
+        width: 22px;
+        margin-top: 75px;
+        height: 25px;
+        background-color: #2d4957;
+    }
+    .book6 {
+        position: absolute;
+        left: 36px;
+        width: 16px;
+        height: 35px;
+        margin-top: 65px;
+        background-color: #296b8c;
+    }
+
+/* book.html*/
+
+.boek {
+    max-width: 80vw;
+    object-fit: cover;
+    }
